@@ -2,21 +2,33 @@ pipeline {
     agent any
     
     stages {
+        stage('Checkout') {
+            steps {
+                echo 'Checking out code from GitHub...'
+                checkout scm
+            }
+        }
+        
         stage('Build') {
             steps {
                 echo 'Building the application...'
             }
         }
         
-        stage('Test') {
+        stage('Performance Test') {
             steps {
-                echo 'Running tests...'
+                echo 'Running performance tests...'
+                script {
+                    // Run JMeter test
+                    sh 'jmeter -n -t performance-test.jmx -l results.jtl'
+                }
             }
         }
         
-        stage('Deploy') {
+        stage('Publish Results') {
             steps {
-                echo 'Deploying the application...'
+                // Publish performance test results
+                perfReport sourceDataFiles: 'results.jtl'
             }
         }
     }
