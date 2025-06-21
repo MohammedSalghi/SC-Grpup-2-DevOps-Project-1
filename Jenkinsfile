@@ -33,6 +33,9 @@ pipeline {
         stage('Publish Results') {
             steps {
                 publishHTML([
+                  allowMissing: false,
+                  alwaysLinkToLastBuild: true,
+                  keepAll: true,
                   reportDir: 'html-report',
                   reportFiles: 'index.html',
                   reportName: 'JMeter Report'
