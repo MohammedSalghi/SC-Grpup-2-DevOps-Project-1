@@ -1,34 +1,42 @@
 pipeline {
     agent any
-    
+
     stages {
         stage('Checkout') {
             steps {
                 echo 'Checking out code from GitHub...'
-                checkout scm
+                git 'https://github.com/MohammedSalghi/SC-Grpup-2-DevOps-Project-1.git'
             }
         }
-        
+
         stage('Build') {
             steps {
                 echo 'Building the application...'
             }
         }
-        
+
         stage('Performance Test') {
             steps {
                 echo 'Running performance tests...'
-                script {
-                    // Run JMeter test
-                    sh 'jmeter -n -t performance-test.jmx -l results.jtl'
-                }
+                sh '''
+                docker pull justb4/jmeter
+
+                docker run --rm -v "$PWD":/tests justb4/jmeter \
+                  -n -t /tests/jmeter/test-plan.jmx -l /tests/results.jtl
+
+                docker run --rm -v "$PWD":/tests justb4/jmeter \
+                  -g /tests/results.jtl -o /tests/html-report
+                '''
             }
         }
-        
+
         stage('Publish Results') {
             steps {
-                // Publish performance test results
-                perfReport sourceDataFiles: 'results.jtl'
+                publishHTML([
+                  reportDir: 'html-report',
+                  reportFiles: 'index.html',
+                  reportName: 'JMeter Report'
+                ])
             }
         }
     }
