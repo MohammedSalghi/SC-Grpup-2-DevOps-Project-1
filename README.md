@@ -10,7 +10,7 @@ This initiative facilitates online appointment requests for clients or patients 
 
 ### Admin
   
-- Admin can add doctors, edit doctors, delete doctors    
+- Admin must add doctors, edit doctors, delete doctors    
 - Schedule new doctors sessions, remove sessions   
 - View patients details    
 - View booking of patients    
