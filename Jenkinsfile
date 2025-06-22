@@ -42,5 +42,12 @@ pipeline {
                 ])
             }
         }
+
+        stage('Update Jira Issue') {
+            steps {
+                echo 'Updating Jira issue...'
+                jiraComment body: "✅ Jenkins build for SCRUM-11 completed successfully. Performance test results attached."
+            }
+        }
     }
 }
