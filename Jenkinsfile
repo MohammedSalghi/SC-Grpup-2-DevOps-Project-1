@@ -4,7 +4,7 @@ pipeline {
     environment {
         JIRA_SITE = 'MyJira' // 🔁 Must match your Jira site ID in Jenkins global config
         JIRA_ISSUE = ''      // Will be extracted dynamically
-        DOCKER_IMAGE = 'mohammedsalghi24/sc-grpup-2-devops-project-1:latest' // 🔁 Your Docker Hub repo
+        DOCKER_IMAGE = 'mohammedsalghi24/sc-grpup-2-devops-project-1:latest'
     }
 
     stages {
@@ -23,7 +23,7 @@ pipeline {
 
                     def issueKeyMatch = commitMessage =~ /([A-Z]+-\d+)/
                     if (issueKeyMatch) {
-                        env.JIRA_ISSUE = issueKeyMatch[0][1]
+                        env.JIRA_ISSUE = issueKeyMatch[0] // ✅ FIXED!
                         echo "✅ Detected Jira Issue Key: ${env.JIRA_ISSUE}"
                     } else {
                         error("❌ No Jira issue key found in commit message.")
@@ -96,5 +96,5 @@ pipeline {
                 )
             }
         }
-    } // 👈 closes the `stages` block
-}     // 👈 closes the `pipeline` block
+    }
+}
