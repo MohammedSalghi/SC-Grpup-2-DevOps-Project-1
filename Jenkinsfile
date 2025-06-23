@@ -35,7 +35,6 @@ pipeline {
         stage('Build') {
             steps {
                 echo '🏗️ Building the application...'
-                // Optional: build steps (e.g., npm run build)
             }
         }
 
@@ -78,7 +77,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 echo "📤 Pushing Docker image to Docker Hub..."
-               withCredentials([usernamePassword(credentialsId: 'docker-hub-token-1234', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                withCredentials([usernamePassword(credentialsId: 'docker-hub-token-1234', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                     sh '''
                     echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
                     docker push $DOCKER_IMAGE
@@ -89,12 +88,13 @@ pipeline {
         }
 
         stage('Update Jira Issue') {
-    steps {
-        echo "📝 Posting comment to Jira issue: ${env.JIRA_ISSUE}"
-        jiraComment(
-            issueKey: "${env.JIRA_ISSUE}",
-            body: "✅ Jenkins built and pushed Docker image `${DOCKER_IMAGE}` and ran performance tests for issue ${env.JIRA_ISSUE}."
-        )
-    }
-}
-
+            steps {
+                echo "📝 Posting comment to Jira issue: ${env.JIRA_ISSUE}"
+                jiraComment(
+                    issueKey: "${env.JIRA_ISSUE}",
+                    body: "✅ Jenkins built and pushed Docker image `${DOCKER_IMAGE}` and ran performance tests for issue ${env.JIRA_ISSUE}."
+                )
+            }
+        }
+    } // 👈 closes the `stages` block
+}     // 👈 closes the `pipeline` block
