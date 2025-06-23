@@ -2,8 +2,9 @@ pipeline {
     agent any
 
     environment {
-        JIRA_SITE = 'MyJira' // Must match the Jira config name in Jenkins
-        JIRA_ISSUE = ''      // Will be set dynamically
+        JIRA_SITE = 'MyJira' // 🔁 Change to your actual Jira Site ID in Jenkins
+        JIRA_ISSUE = ''      // Extracted dynamically from commit
+        DOCKER_IMAGE = 'yourdockerhubusername/devops-app:latest' // 🔁 Replace with real Docker Hub repo
     }
 
     stages {
@@ -19,7 +20,7 @@ pipeline {
                 script {
                     def commitMessage = sh(script: "git log -1 --pretty=%B", returnStdout: true).trim()
                     echo "🔍 Commit message: ${commitMessage}"
-                    
+
                     def issueKeyMatch = commitMessage =~ /([A-Z]+-\d+)/
                     if (issueKeyMatch) {
                         env.JIRA_ISSUE = issueKeyMatch[0][1]
@@ -66,13 +67,32 @@ pipeline {
             }
         }
 
+        stage('Build Docker Image') {
+            steps {
+                echo "🐳 Building Docker image: ${DOCKER_IMAGE}..."
+                sh "docker build -t ${DOCKER_IMAGE} ."
+            }
+        }
+
+        stage('Push Docker Image') {
+            steps {
+                echo "📤 Pushing Docker image to Docker Hub..."
+                withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                    sh '''
+                    echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+                    docker push $DOCKER_IMAGE
+                    '''
+                }
+            }
+        }
+
         stage('Update Jira Issue') {
             steps {
                 echo "📝 Posting comment to Jira issue: ${env.JIRA_ISSUE}"
                 jiraComment(
                     site: "${env.JIRA_SITE}",
                     issueKey: "${env.JIRA_ISSUE}",
-                    body: "✅ Jenkins build completed successfully for ${env.JIRA_ISSUE}. JMeter test results were published."
+                    body: "✅ Jenkins built Docker image `${DOCKER_IMAGE}` and ran tests for ${env.JIRA_ISSUE}."
                 )
             }
         }
