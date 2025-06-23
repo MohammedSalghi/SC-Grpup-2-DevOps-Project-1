@@ -89,14 +89,12 @@ pipeline {
         }
 
         stage('Update Jira Issue') {
-            steps {
-                echo "📝 Posting comment to Jira issue: ${env.JIRA_ISSUE}"
-                jiraComment(
-                    site: "${env.JIRA_SITE}",
-                    issueKey: "${env.JIRA_ISSUE}",
-                    body: "✅ Jenkins built and pushed Docker image `${DOCKER_IMAGE}` and ran performance tests for issue ${env.JIRA_ISSUE}."
-                )
-            }
-        }
+    steps {
+        echo "📝 Posting comment to Jira issue: ${env.JIRA_ISSUE}"
+        jiraComment(
+            issueKey: "${env.JIRA_ISSUE}",
+            body: "✅ Jenkins built and pushed Docker image `${DOCKER_IMAGE}` and ran performance tests for issue ${env.JIRA_ISSUE}."
+        )
     }
 }
+
