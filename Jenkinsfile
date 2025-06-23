@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     environment {
-        JIRA_SITE = 'MyJira' // 🔁 Change to your actual Jira Site ID in Jenkins
-        JIRA_ISSUE = ''      // Extracted dynamically from commit
-        DOCKER_IMAGE = 'yourdockerhubusername/devops-app:latest' // 🔁 Replace with real Docker Hub repo
+        JIRA_SITE = 'MyJira' // 🔁 Must match your Jira site ID in Jenkins global config
+        JIRA_ISSUE = ''      // Will be extracted dynamically
+        DOCKER_IMAGE = 'mohammedsalghi24/sc-grpup-2-devops-project-1:latest' // 🔁 Your Docker Hub repo
     }
 
     stages {
@@ -35,6 +35,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo '🏗️ Building the application...'
+                // Optional: build steps (e.g., npm run build)
             }
         }
 
@@ -81,6 +82,7 @@ pipeline {
                     sh '''
                     echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
                     docker push $DOCKER_IMAGE
+                    docker logout
                     '''
                 }
             }
@@ -92,7 +94,7 @@ pipeline {
                 jiraComment(
                     site: "${env.JIRA_SITE}",
                     issueKey: "${env.JIRA_ISSUE}",
-                    body: "✅ Jenkins built Docker image `${DOCKER_IMAGE}` and ran tests for ${env.JIRA_ISSUE}."
+                    body: "✅ Jenkins built and pushed Docker image `${DOCKER_IMAGE}` and ran performance tests for issue ${env.JIRA_ISSUE}."
                 )
             }
         }
