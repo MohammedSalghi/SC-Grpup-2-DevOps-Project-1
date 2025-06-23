@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        JIRA_SITE = 'MyJira' // 🔁 Make sure this matches the site name in Jenkins Jira configuration
-        JIRA_ISSUE = 'SCRUM-11' // 🔁 Change to the correct issue or make it dynamic if needed
+        JIRA_SITE = 'MyJira' // Must match the Jira config name in Jenkins
+        JIRA_ISSUE = ''      // Will be set dynamically
     }
 
     stages {
@@ -14,10 +14,26 @@ pipeline {
             }
         }
 
+        stage('Extract Jira Issue Key') {
+            steps {
+                script {
+                    def commitMessage = sh(script: "git log -1 --pretty=%B", returnStdout: true).trim()
+                    echo "🔍 Commit message: ${commitMessage}"
+                    
+                    def issueKeyMatch = commitMessage =~ /([A-Z]+-\d+)/
+                    if (issueKeyMatch) {
+                        env.JIRA_ISSUE = issueKeyMatch[0][1]
+                        echo "✅ Detected Jira Issue Key: ${env.JIRA_ISSUE}"
+                    } else {
+                        error("❌ No Jira issue key found in commit message.")
+                    }
+                }
+            }
+        }
+
         stage('Build') {
             steps {
                 echo '🏗️ Building the application...'
-                // You can add actual build steps here
             }
         }
 
@@ -52,11 +68,11 @@ pipeline {
 
         stage('Update Jira Issue') {
             steps {
-                echo '📝 Posting comment to Jira issue...'
+                echo "📝 Posting comment to Jira issue: ${env.JIRA_ISSUE}"
                 jiraComment(
-                    site: "${JIRA_SITE}",
-                    issueKey: "${JIRA_ISSUE}",
-                    body: "✅ Jenkins build completed successfully for ${JIRA_ISSUE}. JMeter test results were published."
+                    site: "${env.JIRA_SITE}",
+                    issueKey: "${env.JIRA_ISSUE}",
+                    body: "✅ Jenkins build completed successfully for ${env.JIRA_ISSUE}. JMeter test results were published."
                 )
             }
         }
