@@ -17,16 +17,18 @@ pipeline {
 
         stage('Extract Jira Issue Key') {
             steps {
-                script {
-                    def commitMessage = sh(script: "git log -1 --pretty=%B", returnStdout: true).trim()
-                    echo "🔍 Commit message: ${commitMessage}"
+                dir('.') {
+                    script {
+                        def commitMessage = sh(script: "git log -1 --pretty=%B", returnStdout: true).trim()
+                        echo "🔍 Commit message: ${commitMessage}"
 
-                    def issueKeyMatch = commitMessage =~ /([A-Z]+-\d+)/
-                    if (issueKeyMatch) {
-                        env.JIRA_ISSUE = issueKeyMatch[0] // ✅ FIXED!
-                        echo "✅ Detected Jira Issue Key: ${env.JIRA_ISSUE}"
-                    } else {
-                        error("❌ No Jira issue key found in commit message.")
+                        def issueKeyMatch = commitMessage =~ /([A-Z]+-\d+)/
+                        if (issueKeyMatch) {
+                            env.JIRA_ISSUE = issueKeyMatch[0]
+                            echo "✅ Detected Jira Issue Key: ${env.JIRA_ISSUE}"
+                        } else {
+                            error("❌ No Jira issue key found in commit message.")
+                        }
                     }
                 }
             }
