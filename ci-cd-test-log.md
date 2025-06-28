@@ -1,10 +1,11 @@
-# CI/CD Pipeline Test Log - SCRUM-16
+# CI/CD Pipeline Test Log - SCRUM-11
 
 ## Test Execution Details
-- **Test ID:** SCRUM-16-FULL-PIPELINE
+- **Test ID:** SCRUM-11-FULL-PIPELINE
 - **Date:** 2024-01-24
 - **Tester:** DevOps Team
 - **Objective:** Verify complete CI/CD workflow from VS Code to production
+- **Jira Issue:** https://mohammedsalghi24.atlassian.net/browse/SCRUM-11
 
 ## Pipeline Components Test
 
@@ -14,7 +15,7 @@
 - [ ] Repository updated successfully
 
 ### 2. Issue Tracking (Jira)
-- [x] Issue SCRUM-16 referenced in commit
+- [x] Issue SCRUM-11 referenced in commit
 - [ ] Jira issue status updated automatically
 - [ ] Pipeline execution logged in Jira
 

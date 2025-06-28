@@ -81,21 +81,22 @@ Demo video: https://youtu.be/mAWHYAHmit4
 
 ## CI/CD Pipeline Status
 
-### Latest Pipeline Test - SCRUM-16
+### Latest Pipeline Test - SCRUM-11
 **Date:** $(Get-Date -Format "yyyy-MM-dd HH:mm:ss")
 **Purpose:** Complete end-to-end CI/CD workflow verification
+**Jira Issue:** https://mohammedsalghi24.atlassian.net/browse/SCRUM-11
 
 **Expected Workflow:**
 1. ✅ Code commit from VS Code
 2. 🔄 GitHub webhook triggers Jenkins
-3. 🔄 Jira issue update (SCRUM-16)
+3. 🔄 Jira issue update (SCRUM-11) 
 4. 🔄 JMeter performance test execution
 5. 🔄 Docker image build and push to Docker Hub
 6. 🔄 Pipeline completion notification
 
 **Test Components:**
 - GitHub Integration: Push from VS Code
-- Jira Integration: Issue SCRUM-16 tracking
+- Jira Integration: Issue SCRUM-11 tracking  
 - Jenkins Automation: Pipeline execution
 - JMeter Testing: Performance validation
 - Docker Hub: Image publishing
