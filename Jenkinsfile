@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    options {
+        skipDefaultCheckout(true)
+    }
+
     environment {
         DOCKER_IMAGE = 'mohammedsalghi24/sc-grpup-2-devops-project-1'
         DOCKER_TAG = "${BUILD_NUMBER}"
@@ -10,6 +14,12 @@ pipeline {
     }
 
     stages {
+        stage('Clean Workspace') {
+            steps {
+                echo '🧹 Cleaning workspace before checkout...'
+                deleteDir()
+            }
+        }
         stage('Checkout') {
             steps {
                 echo '🔄 Checking out code from GitHub...'
