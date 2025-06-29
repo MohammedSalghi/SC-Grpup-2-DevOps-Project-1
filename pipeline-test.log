@@ -64,3 +64,20 @@ Components tested:
 - [ ] JMeter performance test
 
 Pipeline test initiated for issue SCRUM-11
+
+---
+
+Test executed on: 2025-06-29 21:00:00
+Issue: SCRUM-11 - Jenkins restart and pipeline re-test
+Status: Retesting pipeline after Jenkins restart
+
+Components tested:
+- [x] Git commit with Jira issue key
+- [ ] GitHub push
+- [ ] Jenkins pipeline trigger
+- [ ] Jira update
+- [ ] Docker image build
+- [ ] Docker Hub push
+- [ ] JMeter performance test
+
+Pipeline test initiated for issue SCRUM-11
