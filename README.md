@@ -102,4 +102,28 @@ Demo video: https://youtu.be/mAWHYAHmit4
 - Docker Hub: Image publishing
 - Notifications: Pipeline status updates
 
+## 🚀 Development Environment Access
+
+### CI/CD Pipeline Access
+- **Jenkins Dashboard**: http://localhost:8081
+- **Jenkins Admin Password**: `0cb027ef0d2143a6a28b95dc695f6939`
+- **Web Application**: http://localhost:8080
+- **Database**: localhost:3306
+- **Jira Project**: https://mohammedsalghi24.atlassian.net/browse/SCRUM-11
+
+### Quick Commands
+```bash
+# Check all running services
+docker ps
+
+# Access Jenkins logs
+docker logs jenkins-fresh
+
+# Restart Jenkins
+docker restart jenkins-fresh
+
+# Build and run the web application
+docker-compose up -d
+```
+
 ---

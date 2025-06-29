@@ -3,7 +3,7 @@
 ## 🚀 **Initial Setup Steps**
 
 ### 1. Jenkins Initial Configuration
-- **URL**: http://localhost:8080
+- **URL**: http://localhost:8081
 - **Jira Issue**: https://mohammedsalghi24.atlassian.net/browse/SCRUM-11
 - **Docker Hub**: https://hub.docker.com/repository/docker/mohammedsalghi24/sc-grpup-2-devops-project-1
 
