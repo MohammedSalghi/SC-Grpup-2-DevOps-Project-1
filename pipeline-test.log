@@ -30,3 +30,20 @@ Components tested:
 - [ ] JMeter performance test
 
 Pipeline test initiated for issue SCRUM-11
+
+---
+
+Test executed on: 2025-06-29 19:00:00
+Issue: SCRUM-11 - Third pipeline trigger confirmation
+Status: Retesting pipeline trigger with Pipeline script (Jenkinsfile)
+
+Components tested:
+- [x] Git commit with Jira issue key
+- [ ] GitHub push
+- [ ] Jenkins pipeline trigger
+- [ ] Jira update
+- [ ] Docker image build
+- [ ] Docker Hub push
+- [ ] JMeter performance test
+
+Pipeline test initiated for issue SCRUM-11
