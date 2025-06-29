@@ -91,7 +91,7 @@ pipeline {
                 script {
                     try {
                         echo '📊 Publishing test results...'
-                        archiveArtifacts artifacts: 'jmeter-reports/*.txt', allowEmptyArchive: true
+                        archiveArtifacts artifacts: 'jmeter-reports/*.jtl', allowEmptyArchive: true
                         echo '✅ Test results archived successfully'
                     } catch (Exception e) {
                         echo "⚠️ Could not publish results: ${e.getMessage()}"
