@@ -71,21 +71,9 @@ pipeline {
                     try {
                         echo '🚀 Running performance tests with JMeter...'
                         sh '''
-                        echo "Setting up JMeter test environment..."
                         mkdir -p jmeter-reports
-                        
-                        # Use local JMeter test file
                         if [ -f "performance-test.jmx" ]; then
-                            echo "✅ Found performance-test.jmx file"
-                            
-                            # Run JMeter test (simplified for demo)
-                            echo "⚡ Simulating JMeter performance test..."
-                            echo "Test started at: $(date)" > jmeter-reports/results.txt
-                            echo "Response time: 250ms" >> jmeter-reports/results.txt
-                            echo "Throughput: 100 req/sec" >> jmeter-reports/results.txt
-                            echo "Error rate: 0%" >> jmeter-reports/results.txt
-                            echo "Test completed at: $(date)" >> jmeter-reports/results.txt
-                            echo "✅ Performance test completed successfully"
+                            jmeter -n -t performance-test.jmx -l jmeter-reports/results.jtl
                         else
                             echo "⚠️ No JMeter test file found, skipping performance tests"
                         fi
