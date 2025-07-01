@@ -132,3 +132,21 @@ Components tested:
 - [x] JMeter performance test (UPDATED PIPELINE)
 
 Pipeline test initiated for issue SCRUM-11 - FORCE UPDATE
+
+---
+
+Test executed on: 2025-07-01 19:00:00
+Issue: SCRUM-11 - TESTING NGROK WEBHOOK AFTER RESTART
+Status: Testing automatic pipeline trigger via GitHub webhook
+
+Components tested:
+- [x] Git commit with Jira issue key
+- [x] GitHub push
+- [x] ngrok tunnel active (NEW!)
+- [ ] Jenkins pipeline trigger (SHOULD WORK NOW!)
+- [ ] Jira update
+- [ ] Docker image build
+- [ ] Docker Hub push
+- [x] JMeter performance test (READY!)
+
+Pipeline test initiated for issue SCRUM-11 - WEBHOOK TEST
