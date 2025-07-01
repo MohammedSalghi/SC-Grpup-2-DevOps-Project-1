@@ -153,6 +153,26 @@ Pipeline test initiated for issue SCRUM-11 - WEBHOOK TEST
 
 ---
 
+Test executed on: 2025-07-01 21:00:00
+Issue: SCRUM-11 - TESTING AUTOMATED JENKINS TRIGGER WITH NGROK
+Status: Testing if GitHub webhook properly triggers Jenkins via ngrok tunnel
+
+Components tested:
+- [x] Git commit with Jira issue key
+- [x] GitHub push
+- [x] ngrok tunnel ACTIVE and STABLE
+- [ ] GitHub webhook CONFIGURED to use ngrok URL
+- [ ] Jenkins pipeline AUTO-TRIGGER (SHOULD WORK NOW!)
+- [ ] Fast 5-stage pipeline completion
+- [ ] Downloadable artifacts (simple-results.txt + jmeter-demo.html)
+
+🔧 NGROK URL: https://1f81-2001-e68-8282-9900-3118-b59f-e769-7802.ngrok-free.app
+📋 WEBHOOK URL NEEDED: https://1f81-2001-e68-8282-9900-3118-b59f-e769-7802.ngrok-free.app/github-webhook/
+
+Pipeline test initiated for issue SCRUM-11 - AUTOMATED TRIGGER TEST
+
+---
+
 Test executed on: 2025-07-01 20:00:00
 Issue: SCRUM-11 - FINAL WEBHOOK TEST WITH JMETER PIPELINE
 Status: Testing complete automation - GitHub push should trigger Jenkins with JMeter
