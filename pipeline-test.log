@@ -193,6 +193,27 @@ Pipeline test initiated for issue SCRUM-11 - WEBHOOK DELIVERY SUCCESS
 
 ---
 
+Test executed on: 2025-07-01 23:00:00
+Issue: SCRUM-11 - FIXING JENKINS CONFIGURATION FROM SCRIPT TO SCM
+Status: Changing Jenkins from "Pipeline script" to "Pipeline script from SCM"
+
+Components tested:
+- [x] Git commit with Jira issue key
+- [x] GitHub push
+- [x] ngrok tunnel ACTIVE and STABLE
+- [x] GitHub webhook CONFIGURED and DELIVERING ✅
+- [🔧] Jenkins job FIXED - changed to "Pipeline script from SCM"
+- [ ] Jenkins pipeline AUTO-TRIGGER (SHOULD WORK AFTER CONFIG CHANGE!)
+- [ ] Fast 5-stage pipeline completion
+- [ ] Downloadable artifacts (simple-results.txt + jmeter-demo.html)
+
+🔧 FIX APPLIED: Changed Jenkins job definition from "Pipeline script" to "Pipeline script from SCM"
+📋 NOW TESTING: Push should trigger Jenkins with latest Jenkinsfile from GitHub
+
+Pipeline test initiated for issue SCRUM-11 - CONFIG FIXED TEST
+
+---
+
 Test executed on: 2025-07-01 20:00:00
 Issue: SCRUM-11 - FINAL WEBHOOK TEST WITH JMETER PIPELINE
 Status: Testing complete automation - GitHub push should trigger Jenkins with JMeter
