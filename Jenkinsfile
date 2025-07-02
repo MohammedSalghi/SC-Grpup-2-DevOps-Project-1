@@ -142,11 +142,39 @@ ${timestamp+2000},120,HTTP Request,200,OK,Thread Group 1-1,text,true,,1234,567,2
             }
         }
         
+        stage('Build Docker Image') {
+            steps {
+                echo '🐳 Building Docker image...'
+                script {
+                    // Build Docker image with current build number
+                    sh "docker build -t ${DOCKER_IMAGE}:${BUILD_NUMBER} ."
+                    sh "docker build -t ${DOCKER_IMAGE}:latest ."
+                    echo "✅ Docker image built: ${DOCKER_IMAGE}:${BUILD_NUMBER}"
+                }
+            }
+        }
+        
+        stage('Push to Docker Hub') {
+            steps {
+                echo '🚀 Pushing to Docker Hub...'
+                script {
+                    // Push to Docker Hub
+                    withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                        sh "echo \$DOCKER_PASS | docker login -u \$DOCKER_USER --password-stdin"
+                        sh "docker push ${DOCKER_IMAGE}:${BUILD_NUMBER}"
+                        sh "docker push ${DOCKER_IMAGE}:latest"
+                        echo "✅ Images pushed to Docker Hub successfully!"
+                    }
+                }
+            }
+        }
+        
         stage('Summary') {
             steps {
-                echo '✅ FAST Pipeline completed!'
+                echo '✅ COMPLETE CI/CD Pipeline finished!'
+                echo "📊 GitHub → JMeter → Docker → Docker Hub"
                 echo "Build: ${BUILD_NUMBER} | Jira: ${env.JIRA_ISSUE}"
-                echo "⚡ Total time: ~15 seconds (optimized!)"
+                echo "🐳 Image: ${DOCKER_IMAGE}:${BUILD_NUMBER}"
             }
         }
     }
