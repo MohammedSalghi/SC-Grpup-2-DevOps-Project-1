@@ -26,13 +26,15 @@ pipeline {
                     def commitMessage = sh(returnStdout: true, script: 'git log -1 --pretty=%B').trim()
                     echo "Commit message: ${commitMessage}"
                     
-                    def jiraMatch = commitMessage =~ /\[([A-Z]+-\d+)\]/
-                    if (jiraMatch) {
-                        env.JIRA_ISSUE = jiraMatch[0][1]
-                        echo "Found Jira issue: ${env.JIRA_ISSUE}"
+                    def jiraPattern = /([A-Z]+-\d+)/
+                    def matcher = commitMessage =~ jiraPattern
+                    
+                    if (matcher) {
+                        env.JIRA_ISSUE = matcher[0][1]
+                        echo "✅ Found Jira issue: ${env.JIRA_ISSUE}"
                     } else {
-                        echo "No Jira issue found in commit message"
-                        env.JIRA_ISSUE = 'SCRUM-11'
+                        env.JIRA_ISSUE = 'NO-JIRA-ISSUE'
+                        echo "⚠️ No Jira issue found in commit message"
                     }
                 }
             }
