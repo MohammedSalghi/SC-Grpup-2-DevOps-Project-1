@@ -7,6 +7,7 @@ pipeline {
         JIRA_URL_BASE = 'https://mohammedsalghi24.atlassian.net'
         GITHUB_REPO_URL = 'https://github.com/MohammedSalghi/SC-Grpup-2-DevOps-Project-1'
         JENKINS_URL = 'http://localhost:8081'
+        NGROK_URL = 'https://7766-180-74-225-98.ngrok-free.app'
         // Reference to credentials that should be configured in Jenkins
         GITHUB_CREDENTIALS_ID = 'github-token'
         JIRA_CREDENTIALS_ID = 'jira-credentials'
