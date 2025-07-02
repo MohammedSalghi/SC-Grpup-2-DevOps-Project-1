@@ -214,6 +214,71 @@ Pipeline test initiated for issue SCRUM-11 - CONFIG FIXED TEST
 
 ---
 
+Test executed on: 2025-07-01 23:30:00
+Issue: SCRUM-11 - TESTING CREDENTIALS CONFIGURATION
+Status: Testing Jenkins SCM setup with credentials configuration
+
+Components tested:
+- [x] Git commit with Jira issue key
+- [x] GitHub push
+- [x] ngrok tunnel ACTIVE and STABLE
+- [x] GitHub webhook CONFIGURED and DELIVERING ✅
+- [x] Jenkins job changed to "Pipeline script from SCM"
+- [🔧] Testing credentials: "none" for public repo OR GitHub token
+- [ ] Jenkins pipeline AUTO-TRIGGER (TESTING CREDENTIALS!)
+- [ ] Fast 5-stage pipeline completion
+- [ ] Downloadable artifacts (simple-results.txt + jmeter-demo.html)
+
+🔧 CREDENTIALS OPTIONS:
+   Option 1: "- none -" (for public repository)
+   Option 2: GitHub username + Personal Access Token
+
+Pipeline test initiated for issue SCRUM-11 - CREDENTIALS TEST
+
+---
+
+Test executed on: 2025-07-01 23:45:00
+Issue: SCRUM-11 - SWITCHING BACK TO PIPELINE SCRIPT FOR MANUAL TESTING
+Status: Webhook works but Jenkins SCM not triggering - testing with Pipeline script
+
+Components tested:
+- [x] Git commit with Jira issue key
+- [x] GitHub push
+- [x] ngrok tunnel ACTIVE and STABLE
+- [x] GitHub webhook CONFIGURED and DELIVERING ✅
+- [x] Jenkins job SCM setup attempted
+- [🔧] SWITCHING to "Pipeline script" for manual testing
+- [ ] Manual Jenkins build trigger (TESTING NOW!)
+- [ ] Fast 5-stage pipeline completion
+- [ ] Downloadable artifacts (simple-results.txt + test-report.html)
+
+🔧 STRATEGY CHANGE: Using Pipeline script first, then automation later
+📋 PIPELINE SCRIPT CREATED: jenkins-pipeline-script.txt (copy to Jenkins)
+
+Pipeline test initiated for issue SCRUM-11 - MANUAL SCRIPT TEST
+
+---
+
+Test executed on: 2025-07-02 00:15:00
+Issue: SCRUM-12 - TESTING JIRA AND GITHUB INTEGRATION
+Status: Testing Jira issue extraction from commit messages and GitHub push
+
+Components tested:
+- [x] Git commit with Jira issue key [SCRUM-12]
+- [ ] GitHub push successful
+- [ ] Jenkins pipeline extraction of Jira issue
+- [ ] Jira issue tracking in pipeline
+- [ ] GitHub webhook trigger (if configured)
+- [ ] Pipeline completion with artifacts
+
+🎫 JIRA TEST: Using issue key SCRUM-12 in commit message
+🐙 GITHUB TEST: Push to main branch for webhook testing
+🔧 JENKINS TEST: Pipeline should extract SCRUM-12 from commit
+
+Pipeline test initiated for issue SCRUM-12 - JIRA GITHUB INTEGRATION TEST
+
+---
+
 Test executed on: 2025-07-01 20:00:00
 Issue: SCRUM-11 - FINAL WEBHOOK TEST WITH JMETER PIPELINE
 Status: Testing complete automation - GitHub push should trigger Jenkins with JMeter
@@ -232,3 +297,17 @@ Components tested:
 📊 Pipeline should show: Checkout → Extract Jira → JMeter Test → Archive Results → Summary
 
 Pipeline test initiated for issue SCRUM-11 - FINAL TEST
+
+=== JENKINS CONTAINER STARTED ===
+Time: $(Get-Date)
+- Jenkins container 'jenkins-server' successfully started
+- Container Status: Running
+- Port Mapping: 8081 -> 8080 (Jenkins UI)
+- Access URL: http://localhost:8081
+
+Next Steps:
+1. Access Jenkins at http://localhost:8081
+2. Use existing credentials to log in
+3. Navigate to your pipeline job
+4. Run "Build Now" to test the pipeline
+5. Check build console output and artifacts
