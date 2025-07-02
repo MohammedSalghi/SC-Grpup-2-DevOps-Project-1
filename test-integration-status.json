@@ -1,0 +1,16 @@
+{
+  "test_timestamp": "2025-07-03 00:49:43",
+  "build": 30,
+  "jira": {
+    "issue": "SCRUM-11",
+    "status": "test-updated"
+  },
+  "github": {
+    "commit": "c6605d6e",
+    "status": "test-commented"
+  },
+  "jenkins": {
+    "url": "http://localhost:8081/job/SC-Grpup-2-DevOps-Project-1/30",
+    "status": "test-success"
+  }
+}

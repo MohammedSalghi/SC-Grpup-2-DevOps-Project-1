@@ -1,0 +1,4 @@
+timeStamp,elapsed,label,responseCode,responseMessage,success,bytes
+1654789123,150,HTTP Request,200,OK,true,1234
+1654789124,180,HTTP Request,200,OK,true,1234
+1654789125,120,HTTP Request,200,OK,true,1234

@@ -1,0 +1,11 @@
+{
+  "build": 29,
+  "jira": {
+    "issue": "SCRUM-11",
+    "status": "updated"
+  },
+  "github": {
+    "commit": "abc1234",
+    "status": "commented"
+  }
+}
