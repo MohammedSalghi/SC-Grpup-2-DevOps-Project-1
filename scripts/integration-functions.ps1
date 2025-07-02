@@ -50,8 +50,8 @@ function global:update-status {
             if ($Comment) { comment $IssueId "Ready for review: $Comment" }
         }
     }
-    
-    Write-Host "✅ Status updated successfully!" -ForegroundColor Green
+        Write-Host "✅ Status updated successfully!" -ForegroundColor Green
+
 }
 
 # Function to log work time
