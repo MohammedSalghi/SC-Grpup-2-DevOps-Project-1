@@ -382,7 +382,7 @@ Performance Test Results - Build ${BUILD_NUMBER}
 ⏱️ **Duration**: ~30 seconds
 📊 **Performance**: 150ms avg response, 0% errors, 2.0 req/sec
 
-🐳 **Docker Image**: \`${DOCKER_IMAGE}:${BUILD_TAG}\` pushed to Docker Hub
+🐳 **Docker Image**: `${DOCKER_IMAGE}:${BUILD_TAG}` pushed to Docker Hub
 🔗 [View on Docker Hub](https://hub.docker.com/r/mohammedsalghi24/sc-grpup-2-devops-project-1/tags)
 
 � [View Performance Dashboard](${env.JENKINS_URL}/job/SC-Grpup-2-DevOps-Project-1/${BUILD_NUMBER}/artifact/performance-dashboard.html)
