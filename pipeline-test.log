@@ -298,16 +298,51 @@ Components tested:
 
 Pipeline test initiated for issue SCRUM-11 - FINAL TEST
 
-=== JENKINS CONTAINER STARTED ===
-Time: $(Get-Date)
-- Jenkins container 'jenkins-server' successfully started
-- Container Status: Running
-- Port Mapping: 8081 -> 8080 (Jenkins UI)
-- Access URL: http://localhost:8081
+---
 
-Next Steps:
-1. Access Jenkins at http://localhost:8081
-2. Use existing credentials to log in
-3. Navigate to your pipeline job
-4. Run "Build Now" to test the pipeline
-5. Check build console output and artifacts
+Test executed on: 2025-01-27 14:45:00
+Issue: DEVOPS-456 - Enhanced Jenkinsfile with dynamic Jira issue extraction
+Status: Updated pipeline with automatic Jira issue extraction from commit messages
+
+Components updated:
+- [x] Added dynamic Jira issue extraction stage
+- [x] Enhanced artifact generation (simple-results.txt, test-report.html)  
+- [x] Improved reporting with Jira issue display
+- [x] Git commit with Jira issue key (DEVOPS-456)
+- [x] GitHub push with webhook trigger
+- [x] Ngrok tunnel active: https://e48d-2001-e68-828a-c200-9105-7147-1e6e-9064.ngrok-free.app
+- [ ] Jenkins pipeline auto-trigger verification
+- [ ] Jira issue extraction verification (should extract "DEVOPS-456")
+- [ ] Artifact archiving verification
+
+Pipeline enhancements:
+- Dynamic Jira issue extraction using regex pattern ([A-Z]+-\d+)
+- Enhanced HTML test report with build information
+- Improved artifact content with timestamps and Jira issue
+- Better summary reporting
+
+Expected results:
+- Jenkins should auto-trigger from GitHub webhook
+- Pipeline should extract "DEVOPS-456" from commit message
+- Artifacts should contain Jira issue information
+- Test report should display build details and Jira issue
+
+---
+
+Test executed on: 2025-01-27 15:00:00
+Issue: TEST-789 - Webhook integration test after GitHub webhook update
+Status: Testing GitHub webhook trigger with updated webhook URL
+
+Components tested:
+- [x] Jenkins container running (localhost:8081)
+- [x] Ngrok tunnel active (https://e48d-2001-e68-828a-c200-9105-7147-1e6e-9064.ngrok-free.app)
+- [x] GitHub webhook updated with correct URL
+- [x] Git commit with Jira issue key (TEST-789)
+- [ ] GitHub push with webhook trigger
+- [ ] Jenkins pipeline auto-trigger
+- [ ] Jira issue extraction (should extract "TEST-789")
+- [ ] Artifact generation and archiving
+- [ ] End-to-end pipeline success
+
+Webhook test: User confirmed webhook has been updated in GitHub
+Expected: Jenkins should automatically trigger and extract "TEST-789" from commit message
