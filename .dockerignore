@@ -1,0 +1,24 @@
+# Speed up Docker builds by reducing context size
+
+# Create .dockerignore to exclude unnecessary files
+*.ps1
+*.md
+*.txt
+*.log
+*.war
+*.jmx
+.git/
+*.json
+quick-*
+test-*
+demo-*
+video-*
+monitor-*
+fix-*
+check-*
+simple-*
+ultimate-*
+final-*
+integration-*
+jmeter-*
+jenkins-*
