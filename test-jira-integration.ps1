@@ -48,3 +48,19 @@ git push
 
 # 3. Open Jenkins to watch
 start http://localhost:8081/job/SC-Group-2-DevOps-Project-1/
+
+
+# 1. Show Jenkins is running
+docker ps --filter "name=jenkins"
+
+# 2. Show recent builds  
+docker images mohammedsalghi24/sc-grpup-2-devops-project-1 | Select-Object -First 3
+
+# 3. Trigger live build
+"SCRUM-11: Doctor Demo $(Get-Date)" | Out-File doctor-demo.txt
+git add doctor-demo.txt
+git commit -m "SCRUM-11: Doctor demo - Jenkins working"
+git push
+
+# 4. Open Jenkins
+Start-Process http://localhost:8081/job/SC-Group-2-DevOps-Project-1/
