@@ -1,32 +1,35 @@
-# 🎬 QUICK DEMO COMMANDS - 10 MINUTE VIDEO
-# Essential copy-paste commands for live demonstration
+=== QUICK TEST COMMANDS ===
 
-# 1. STATUS CHECK (30 seconds)
-docker ps | findstr jenkins
-Start-Process 'http://localhost:8080'
+## GITHUB TEST
+# Make a change and push to trigger Jenkins
+echo "Test $(Get-Date)" | Add-Content index.html
+git add -A
+git commit -m "Test automation trigger"
+git push origin main
 
-# 2. DOCKER HUB TEST (2 minutes)
+## DOCKER HUB TEST
+# Pull latest image
 docker pull mohammedsalghi24/sc-grpup-2-devops-project-1:latest
-docker run -d --name demo-app -p 3000:80 mohammedsalghi24/sc-grpup-2-devops-project-1:latest
-Start-Process 'http://localhost:3000'
 
-# 3. JENKINS BUILD TEST (2 minutes)
-# → Go to Jenkins UI → Click "Build Now" → Watch progress
+# Push new image (Jenkins does this automatically)
+docker push mohammedsalghi24/sc-grpup-2-devops-project-1:latest
 
-# 4. JMETER TEST (2 minutes)
-jmeter -n -t devops-web-app-load-test.jmx -l demo-results.jtl
-Get-Content demo-results.jtl | Select-Object -Last 3
+# Run pulled image
+docker run -d -p 8083:80 --name test-pull mohammedsalghi24/sc-grpup-2-devops-project-1:latest
 
-# 5. TEAM DEMO (1 minute)
-docker run -d --name team-test -p 4000:80 mohammedsalghi24/sc-grpup-2-devops-project-1:latest
-Start-Process 'http://localhost:4000'
+## JIRA TEST
+# Your Jira: https://mohammedsalghi24.atlassian.net/browse/SCRUM-11
+# Test commit with Jira ticket reference
+git commit -m "SCRUM-11: Test Jenkins automation and Jira integration"
 
-# 6. ARTIFACTS DEMO (1 minute)
-# → Jenkins UI → Latest Build → Artifacts → Show jmeter-dashboard.html
+# Check Jira ticket status (manual)
+Start-Process "https://mohammedsalghi24.atlassian.net/browse/SCRUM-11"
 
-# 7. CLEANUP (30 seconds)
-docker stop demo-app team-test
-docker rm demo-app team-test
+# Jira integration commands (if Jenkins is configured)
+# Jenkins can auto-update Jira tickets when builds complete
 
-# EMERGENCY QUICK TEST (if needed)
-docker run -d --name emergency -p 5000:80 mohammedsalghi24/sc-grpup-2-devops-project-1:latest && Start-Process 'http://localhost:5000'
+## QUICK STATUS CHECK
+docker ps
+docker images | findstr mohammedsalghi24
+git status
+git log --oneline -5
