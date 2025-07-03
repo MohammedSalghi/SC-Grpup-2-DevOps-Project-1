@@ -1,0 +1,55 @@
+📧 EMAIL TEMPLATE FOR TEAM MEMBERS
+========================================
+
+Subject: DevOps Project - Docker Image Available on Docker Hub
+
+Hi Team,
+
+Our DevOps project is now available on Docker Hub! You can easily run it on your workstation with these simple commands:
+
+🐳 DOCKER COMMANDS:
+------------------
+
+1. Pull the latest image:
+   docker pull mohammedsalghi24/sc-grpup-2-devops-project-1:latest
+
+2. Run the application:
+   docker run -d --name devops-app -p 8080:80 mohammedsalghi24/sc-grpup-2-devops-project-1:latest
+
+3. Access the application:
+   Open your browser: http://localhost:8080
+
+🔧 MANAGEMENT COMMANDS:
+----------------------
+- Stop: docker stop devops-app
+- Start: docker start devops-app
+- Remove: docker stop devops-app && docker rm devops-app
+
+📋 REQUIREMENTS:
+---------------
+- Docker Desktop installed and running
+- Port 8080 available (or use -p 3000:80 for port 3000)
+
+🔗 LINKS:
+--------
+- Docker Hub: https://hub.docker.com/r/mohammedsalghi24/sc-grpup-2-devops-project-1
+- GitHub Repo: https://github.com/MohammedSalghi/SC-Grpup-2-DevOps-Project-1
+- Jenkins: http://localhost:8081 (if running locally)
+
+🎯 WHAT'S INCLUDED:
+------------------
+✅ Complete web application
+✅ PHP backend with database connectivity
+✅ Login and user management features
+✅ Performance tested with JMeter
+✅ CI/CD pipeline integration
+
+If you have any issues, check:
+- Docker is running: docker --version
+- Container status: docker ps -a
+- Container logs: docker logs devops-app
+
+Happy coding! 🚀
+
+Best regards,
+DevOps Team

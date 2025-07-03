@@ -1,0 +1,32 @@
+# 🎬 QUICK DEMO COMMANDS - 10 MINUTE VIDEO
+# Essential copy-paste commands for live demonstration
+
+# 1. STATUS CHECK (30 seconds)
+docker ps | findstr jenkins
+Start-Process 'http://localhost:8080'
+
+# 2. DOCKER HUB TEST (2 minutes)
+docker pull mohammedsalghi24/sc-grpup-2-devops-project-1:latest
+docker run -d --name demo-app -p 3000:80 mohammedsalghi24/sc-grpup-2-devops-project-1:latest
+Start-Process 'http://localhost:3000'
+
+# 3. JENKINS BUILD TEST (2 minutes)
+# → Go to Jenkins UI → Click "Build Now" → Watch progress
+
+# 4. JMETER TEST (2 minutes)
+jmeter -n -t devops-web-app-load-test.jmx -l demo-results.jtl
+Get-Content demo-results.jtl | Select-Object -Last 3
+
+# 5. TEAM DEMO (1 minute)
+docker run -d --name team-test -p 4000:80 mohammedsalghi24/sc-grpup-2-devops-project-1:latest
+Start-Process 'http://localhost:4000'
+
+# 6. ARTIFACTS DEMO (1 minute)
+# → Jenkins UI → Latest Build → Artifacts → Show jmeter-dashboard.html
+
+# 7. CLEANUP (30 seconds)
+docker stop demo-app team-test
+docker rm demo-app team-test
+
+# EMERGENCY QUICK TEST (if needed)
+docker run -d --name emergency -p 5000:80 mohammedsalghi24/sc-grpup-2-devops-project-1:latest && Start-Process 'http://localhost:5000'
