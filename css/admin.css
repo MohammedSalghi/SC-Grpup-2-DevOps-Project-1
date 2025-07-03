@@ -1,27 +1,31 @@
+/* Container that holds the entire layout in flex with wrap enabled and full viewport height */
 .container{
     display: flex;
     flex-wrap: wrap;
     height: 100vh;
-
-
 }
+
+/* Left sidebar menu styling */
 .menu{
     border-right: 1.5px solid rgb(235, 235, 235);
     width: 21%;
     height: 100vh;
     box-shadow: 0 0px 0px 2px rgba(240, 240, 240, 0.3);
 }
+
+/* Main dashboard content area styling */
 .dash-body{
     width: 79%;
     height: 100vh;
 }
 
+/* Table layout container inside menu */
 .menu-container{
     width: 100%;
     border-spacing: 0;
-    
 }
 
+/* Title text for profile section */
 .profile-title{
     font-weight: 500;
     color: #161c2d;
@@ -31,6 +35,7 @@
     padding-left: 8%;
 }
 
+/* Subtitle text under profile title */
 .profile-subtitle{
     font-weight: 300;
     color: #8492a6;
@@ -40,95 +45,49 @@
     padding-left: 8%;
 }
 
+/* Logout button style */
 .logout-btn{
     margin-top: 30px;
     width: 85%;
 }
 
+/* Profile container box with bottom border and spacing */
 .profile-container{
     border-bottom: 1.5px solid rgb(235, 235, 235);
-    /*border-radius: 6px;*/
     padding-top: 18%;
     padding-bottom: 12%;
-    /*box-shadow: 0 0 3px rgba(52,58,64,0.08);*/
     text-align: center;
-    
 }
 
 
-/*.menu-items1{
-    font-weight: 500;
-    text-align: left;
-    padding: 0;
-    margin: 0;
-    color: #161c2def;
-    
-}
-
-.menu-td1{
-    padding-right: 10px;
-}
-
-
-.menu-button:hover{
-    cursor: pointer;
-    background-color:var(--btnice);
-}
-
-.menu-active{
-    color:var(--btnnicetext);
-    
-}
-
-.menu-items1-active{
-    color:var(--btnnicetext);
-    background-image: url('../img/search.svg');
-    background-position: 10px 50%;
-    background-repeat: no-repeat;
-}
-
-
-
-*/
-
-
-
-
-
-
-
-
-
-
+/* Main heading text style */
 .heading-main12{
     font-weight: 500;
     font-size: 25px;
 }
 
+/* Subheading text aligned to the right */
 .heading-sub12{
     font-weight: 500;
     font-size: 20px;
     text-align: right;
 }
 
-
+/* Flex container for search bar alignment */
 .header-search{
     display: flex;
     justify-content: center;
-
-    
 }
+
+/* Style for the search bar input */
 .header-searchbar{
     width: 75%;
     background-color: rgba(255, 255, 255, 0.705);
     border: 0.5px solid rgba(190, 190, 190, 0.884);
-    
-    
 }
 
+/* Form container used for adding documents */
 .add-doc-form-container{
     padding: 25px;
     margin-top: 30px;
-    
 }
-
