@@ -1,61 +1,67 @@
-
+/* Set overall page margin and background color */
 body{
-    margin: 7%;
-    background-color: #F6F7FA;
+    margin: 7%; /* Adds space around the entire page */
+    background-color: #F6F7FA; /* Light gray background color */
 }
 
-
-
+/* Styling for the main container */
 .container{
-    width: 45%;
-    background-color: white;
-    border: 1px solid rgb(235, 235, 235);
-    border-radius: 8px;
+    width: 45%; /* Container takes up 45% of the page width */
+    background-color: white; /* White background */
+    border: 1px solid rgb(235, 235, 235); /* Light gray border */
+    border-radius: 8px; /* Rounded corners */
     margin: 0;
     padding: 0;
-    box-shadow: 0 3px 5px 0 rgba(240, 240, 240, 0.3);
-    animation: transitionIn-Y-over 0.5s;
-
+    box-shadow: 0 3px 5px 0 rgba(240, 240, 240, 0.3); /* Soft shadow for depth */
+    animation: transitionIn-Y-over 0.5s; /* Slide-in from top animation */
 }
+
+/* Center-align all table data cells */
 td{
     text-align: center;
-
 }
+
+/* Styling for the main header text */
 .header-text{
-    font-weight: 600;
-    font-size: 30px;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-
+    font-weight: 600; /* Semi-bold text */
+    font-size: 30px; /* Large text */
+    letter-spacing: 1px; /* Spacing between letters */
+    margin-bottom: 10px; /* Space below header */
 }
 
+/* Subtext styling, usually for descriptions */
 .sub-text{
     font-size: 15px;
-    color: rgb(138, 138, 138);
+    color: rgb(138, 138, 138); /* Medium gray text */
 }
 
+/* Label for form fields */
 .form-label{
-    color: rgb(44, 44, 44);
+    color: rgb(44, 44, 44); /* Darker text */
     text-align: left;
     font-size: 14px;
 }
+
+/* Table cell used for form labels with padding on top */
 .label-td{
     text-align: left;
     padding-top: 10px;
 }
 
+/* Styling for clickable links (like "Forgot password") */
 .hover-link1{
-    font-weight: bold;
+    font-weight: bold; /* Bold text */
 }
 
-
+/* Hover effect for clickable link */
 .hover-link1:hover{
-    opacity: 0.8;
-    transition: 0.5s;
+    opacity: 0.8; /* Slightly faded effect on hover */
+    transition: 0.5s; /* Smooth transition */
+}
 
-
-}.login-btn{
-    /*margin-top: 15px;*/
-    margin-bottom: 15px;
-    width: 100%;
+/* Styling for the login button */
+.login-btn{
+    /*margin-top: 15px;*/ /* Commented out top margin */
+    margin-bottom: 15px; /* Space below button */
+    width: 100%; /* Full width button */
 }

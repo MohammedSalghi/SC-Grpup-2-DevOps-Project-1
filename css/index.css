@@ -1,29 +1,33 @@
+/* Set full background image for body */
 body{
-    background-image: url(../img/bg01.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+    background-image: url(../img/bg01.jpg); /* Background image path */
+    background-repeat: no-repeat;           /* Prevent repeating the image */
+    background-attachment: fixed;           /* Fix background on scroll */
+    background-size: cover;                 /* Cover entire screen */
     height: 100%;
 }
 
+/* Ensure full height and remove default margin */
 html, body {
     height: 100%;
     margin: 0;
-  }
+}
   
+/* Full height container with semi-transparent overlay */
 .full-height {
-    background: rgba(26, 26, 26, 0.548);
-    background-attachment: fixed;
+    background: rgba(26, 26, 26, 0.548); /* Dark transparent overlay */
+    background-attachment: fixed;       /* Fix background */
     max-height: 100vh;
     height: 100vh;
-
-
 }
+
+/* Make all tables span full width and add top padding */
 table{
     width: 100%;
     padding-top: 5px;
-    
 }
+
+/* Main heading text styling */
 .heading-text{
     color: white;
     font-size: 42px;
@@ -34,8 +38,9 @@ table{
     margin-bottom: 0;
 }
 
+/* Subheading text styling */
 .sub-text2{
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.5); /* Light white */
     font-size: 17px;
     line-height: 27px;
     font-weight: 400;
@@ -43,45 +48,46 @@ table{
     margin-top: 0;
 }
 
-
+/* Register button styling */
 .register-btn{
-    background-color: rgba(240, 248, 255, 0.589);
-    color: #345cc4;
+    background-color: rgba(240, 248, 255, 0.589); /* Light background */
+    color: #345cc4; /* Blue text */
 }
 
-
+/* Logo text style with animation */
 .edoc-logo{
     color: white;
     font-weight: bolder;
     font-size: 20px;
     padding-left: 20px;
-    animation: transitionIn-Y-over 0.5s;
+    animation: transitionIn-Y-over 0.5s; /* Slide in from top */
 }
 
+/* Logo subtitle style */
 .edoc-logo-sub{
-    color: rgba(255, 255, 255, 0.733);
+    color: rgba(255, 255, 255, 0.733); /* Slightly faded white */
     font-size: 12px;
-
 }
 
-
+/* Navigation item style with animation */
 .nav-item{
-    color: rgba(255, 255, 255, 0.671);
+    color: rgba(255, 255, 255, 0.671); /* Light white */
     text-align: center;
     font-size: 15px;
     font-weight: 500;
-    animation: transitionIn-Y-over 0.5s;
+    animation: transitionIn-Y-over 0.5s; /* Slide in from top */
 }
 
+/* Hover effect for nav items */
 .nav-item:hover{
-    color: #f0f0f0;
-
+    color: #f0f0f0; /* Brighter white on hover */
 }
 
+/* Footer text positioned at bottom center with animation */
 .footer-hashen{
     position: absolute;
     bottom: 0;
     left: 45%;
     font-size: 13px;
-    animation: transitionIn-Y-over 0.5s;
+    animation: transitionIn-Y-over 0.5s; /* Slide in from top */
 }
