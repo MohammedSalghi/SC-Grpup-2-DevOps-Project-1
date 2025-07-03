@@ -178,15 +178,15 @@ ${timestamp+4500},155,API Request,200,OK,API Test Group 1-10,text,true,,1234,567
                                                    passwordVariable: 'DOCKER_PASSWORD')]) {
                         try {
                             // Login to Docker Hub
-                            sh """
-                            echo ${DOCKER_PASSWORD} | docker login -u ${DOCKER_USERNAME} --password-stdin
-                            """
+                            sh '''
+                            echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+                            '''
                             
                             // Push both tags to Docker Hub
-                            sh """
-                            docker push ${DOCKER_IMAGE}:${BUILD_TAG}
-                            docker push ${DOCKER_IMAGE}:latest
-                            """
+                            sh '''
+                            docker push ''' + DOCKER_IMAGE + ''':''' + BUILD_TAG + '''
+                            docker push ''' + DOCKER_IMAGE + ''':latest
+                            '''
                             
                             echo "✅ Successfully pushed Docker image to Docker Hub: ${DOCKER_IMAGE}:${BUILD_TAG} and ${DOCKER_IMAGE}:latest"
                         } catch (Exception e) {
