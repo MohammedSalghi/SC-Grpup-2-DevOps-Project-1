@@ -10,7 +10,7 @@ pipeline {
         // Reference to credentials that should be configured in Jenkins
         GITHUB_CREDENTIALS_ID = 'github-token'
         JIRA_CREDENTIALS_ID = 'jira-credentials'
-        DOCKER_CREDENTIALS_ID = 'docker-hub-credentials'
+        DOCKER_CREDENTIALS_ID = 'dockerhub-credentials'
     }
     
     stages {
@@ -173,7 +173,7 @@ ${timestamp+4500},155,API Request,200,OK,API Test Group 1-10,text,true,,1234,567
             steps {
                 echo '🚀 Pushing Docker image to Docker Hub...'
                 script {
-                    withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', 
+                    withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', 
                                                    usernameVariable: 'DOCKER_USERNAME', 
                                                    passwordVariable: 'DOCKER_PASSWORD')]) {
                         try {
