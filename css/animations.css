@@ -1,45 +1,43 @@
-/*These transition are from youtube*/
+/* These transitions are from YouTube */
 
+/* Horizontal slide-in animation from the left */
 @keyframes transitionIn-X{
-    from {
-            opacity: 0;
-            transform: translateX(-10px);
-
-    }
-
-    to {
-            opacity: 1;
-            transform: translateX(0);
-    }
-}
+        from {
+            opacity: 0; /* Fully transparent */
+            transform: translateX(-10px); /* Move 10px left */
+        }
     
-
-
-@keyframes transitionIn-Y-over{
-    from {
-            opacity: 0;
-            transform: translateY(-10px);
-
+        to {
+            opacity: 1; /* Fully visible */
+            transform: translateX(0); /* Original position */
+        }
     }
-
-    to {
-            opacity: 1;
-            transform: translateY(0);
-    }
-}
+        
+    /* Vertical slide-in animation from the top */
+    @keyframes transitionIn-Y-over{
+        from {
+            opacity: 0; /* Fully transparent */
+            transform: translateY(-10px); /* Move 10px up */
+        }
     
-@keyframes transitionIn-Y-bottom{
-    from {
-            opacity: 0;
-            transform: translateY(30px);
-
+        to {
+            opacity: 1; /* Fully visible */
+            transform: translateY(0); /* Original position */
+        }
     }
-
-    to {
-            opacity: 1;
-            transform: translateY(0);
-    }
-}
+        
+    /* Vertical slide-in animation from the bottom */
+    @keyframes transitionIn-Y-bottom{
+        from {
+            opacity: 0; /* Fully transparent */
+            transform: translateY(30px); /* Move 30px down */
+        }
     
-
-/* Transition end */
+        to {
+            opacity: 1; /* Fully visible */
+            transform: translateY(0); /* Original position */
+        }
+    }
+    
+    /* Transition end */
+    
