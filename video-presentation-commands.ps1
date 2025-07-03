@@ -19,7 +19,7 @@ Write-Host "Start-Process 'http://localhost:8080'" -ForegroundColor White
 Write-Host "# 2. Go to job → Build Now → Watch progress" -ForegroundColor Cyan
 Write-Host ""
 
-Write-Host "📋 PART 2: DOCKER DEMONSTRATION (2 minutes)" -ForegroundColor Yellow
+Write-Host "PART 2: DOCKER DEMONSTRATION (2 minutes)" -ForegroundColor Yellow
 Write-Host "============================================" -ForegroundColor Yellow
 Write-Host ""
 Write-Host "4. Show Docker images:" -ForegroundColor Cyan
@@ -45,7 +45,7 @@ Write-Host "9. Display pipeline configuration:" -ForegroundColor Cyan
 Write-Host "   Get-Content Jenkinsfile | Select-String -Pattern 'stage' | Select-Object -First 10" -ForegroundColor Green
 Write-Host ""
 
-Write-Host "📋 PART 4: JMETER PERFORMANCE TESTING (2 minutes)" -ForegroundColor Yellow
+Write-Host "PART 4: JMETER PERFORMANCE TESTING (2 minutes)" -ForegroundColor Yellow
 Write-Host "===================================================" -ForegroundColor Yellow
 Write-Host ""
 Write-Host "10. Show JMeter test plan details:" -ForegroundColor Cyan
@@ -57,7 +57,7 @@ Write-Host "    # Or show existing results:" -ForegroundColor Gray
 Write-Host "    Get-Content performance-summary.txt" -ForegroundColor Green
 Write-Host ""
 
-Write-Host "📋 PART 5: TEAM COLLABORATION DEMO (1 minute)" -ForegroundColor Yellow
+Write-Host "PART 5: TEAM COLLABORATION DEMO (1 minute)" -ForegroundColor Yellow
 Write-Host "===============================================" -ForegroundColor Yellow
 Write-Host ""
 Write-Host "12. Show team pull commands:" -ForegroundColor Cyan
