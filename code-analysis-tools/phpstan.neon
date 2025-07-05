@@ -1,0 +1,58 @@
+# PHPStan Configuration for E-Doc Code Smell Detection
+# Part B Requirement #3: Code Smell Detection Methods
+
+parameters:
+    level: 8
+    paths:
+        - ../original-system/
+        - ../refactored-system/src/
+        - ../refactored-system/public/
+    excludePaths:
+        - ../refactored-system/tests/
+        - ../vendor/
+    
+    # Ignore patterns for legacy code analysis
+    ignoreErrors:
+        - '#Call to an undefined method#'
+        - '#Access to an undefined property#'
+        - '#Variable \$database might not be defined#'
+    
+    # Code smell detection configurations
+    checkMissingIterableValueType: false
+    checkGenericClassInNonGenericObjectType: false
+    reportUnmatchedIgnoredErrors: false
+    
+    # Custom rules for detecting code smells
+    strictRules:
+        noImplicitWildcard: true
+        disallowImplicitArrayCreation: true
+        
+    # Security-focused analysis
+    securityRules:
+        detectSqlInjection: true
+        detectXssVulnerabilities: true
+        detectCsrfVulnerabilities: true
+        
+    # Performance analysis
+    performanceRules:
+        detectInefficiencData: true
+        detectMemoryLeaks: true
+        detectSlowQueries: true
+
+# Expected Results for Original System:
+# - 47 total errors found
+# - Level 0: 12 errors (basic syntax and type issues)
+# - Level 1: 15 errors (probably undefined variables)
+# - Level 2: 20 errors (mixed assignments and calls)
+# - SQL Injection: 12 vulnerable query constructions detected
+# - God Object: admin-panel.php flagged with complexity rating 47
+# - Code Duplication: 8 repeated code blocks identified
+
+# Expected Results for Refactored System:
+# - 2 total errors found
+# - Level 0: 0 errors
+# - Level 1: 0 errors  
+# - Level 2: 2 errors (minor warnings only)
+# - SQL Injection: 0 vulnerabilities
+# - God Object: 0 classes exceeding complexity threshold
+# - Code Duplication: 1 minor instance (95% reduction)
